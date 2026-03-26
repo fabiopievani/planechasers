@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Planechasers</string>
+    <string name="_0">0</string>
+    <string name="_40">40</string>
+    <string name="reset">RESET</string>
+    <string name="schemes">SCHEMES</string>
+    <string name="planes">PLANES</string>
+    <string name="player_1">PLAYER 1</string>
+    <string name="player_2">PLAYER 2</string>
+    <string name="player_3">PLAYER 3</string>
+    <string name="player_4">PLAYER 4</string>
+    <string name="random">random</string>
+    <string name="plane_card">Plane card</string>
+    <string name="empty_planes">No planes yet</string>
+    <string name="new_plane">New Plane</string>
+    <string name="life">life</string>
+    <string name="empty_scheme">No scheme yet</string>
+    <string name="scheme_card">Scheme card</string>
+    <string name="new_scheme">new scheme</string>
+    <string name="ongoing">ongoing</string>
+    <string name="archenemy">archenemy</string>
+    <string name="classic">classic</string>
+</resources>

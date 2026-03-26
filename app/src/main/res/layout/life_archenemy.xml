@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_life"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fabiopievani.planechasers.archenemy.ArchenemyLife">
+
+    <RelativeLayout
+        android:id="@+id/background_life"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background_life"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/archenemy_bg_player1"
+        android:layout_width="456dp"
+        android:layout_height="213dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.7"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/archenemy_bg_player2"
+        android:layout_width="274dp"
+        android:layout_height="180dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.7"
+        android:importantForAccessibility="no"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/archenemy_bg_player3"
+        android:layout_width="286dp"
+        android:layout_height="180dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.7"
+        android:importantForAccessibility="no"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/archenemy_bg_player4"
+        android:layout_width="274dp"
+        android:layout_height="180dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.7"
+        android:importantForAccessibility="no"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/archenemy_maschera"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/life_mask_archenemy" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_planes_from_life"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button_planes"
+        android:fontFamily="@font/cerebri_bold"
+        android:text="PLANES"
+        android:textColor="#EAEAEA"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_schemes_from_life"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
+        android:background="@drawable/button_schemes"
+        android:fontFamily="@font/cerebri_bold"
+        android:text="SCHEMES"
+        android:textColor="#EAEAEA"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_reset"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_reset"
+        android:fontFamily="@font/cerebri_bold"
+        android:text="RESET"
+        android:textColor="#EAEAEA"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.858" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_meno1_1"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:background="@drawable/button_minus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712"
+        android:contentDescription="reduce archenemy life"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_piu1_1"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:background="@drawable/button_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_meno1_3"
+        android:layout_width="80dp"
+        android:layout_height="64dp"
+        android:background="@drawable/button_minus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.255" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_piu1_3"
+        android:layout_width="80dp"
+        android:layout_height="64dp"
+        android:background="@drawable/button_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.255" />
+
+    <TextView
+        android:id="@+id/archenemy_segna_vita1"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:fontFamily="@font/cerebri"
+        android:gravity="center"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="40"
+        android:textAlignment="center"
+        android:textColor="#EAEAEA"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712" />
+
+    <TextView
+        android:id="@+id/archenemy_segna_vita3"
+        android:layout_width="110dp"
+        android:layout_height="64dp"
+        android:fontFamily="@font/cerebri"
+        android:gravity="center"
+        android:rotation="180"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="40"
+        android:textAlignment="center"
+        android:textColor="#EAEAEA"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.255" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_poison_1press"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_poison_damage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924" />
+
+    <TextView
+        android:id="@+id/archenemy_poison_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/cerebri"
+        android:includeFontPadding="false"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#EAEAEA"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_poison_3press"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_poison_damage"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060" />
+
+    <TextView
+        android:id="@+id/archenemy_poison_3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/cerebri"
+        android:includeFontPadding="false"
+        android:rotation="180"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#EAEAEA"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_commander_1press"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_commander_damage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924" />
+
+    <TextView
+        android:id="@+id/archenemy_commander_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/cerebri"
+        android:includeFontPadding="false"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#EAEAEA"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.924" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/archenemy_commander_3press"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_commander_damage"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060" />
+
+    <TextView
+        android:id="@+id/archenemy_commander_3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/cerebri"
+        android:includeFontPadding="false"
+        android:rotation="180"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#EAEAEA"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060" />
+
+    <ImageView
+        android:id="@+id/swipe_archenemy"
+        android:layout_width="751dp"
+        android:layout_height="391dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/empty_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

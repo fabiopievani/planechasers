@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.fabiopievani.planechasers"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PLANECHASERS"
+        tools:targetApi="31">
+        <activity
+            android:name="com.fabiopievani.planechasers.archenemy.PermanentSchemesWindow1"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name="com.fabiopievani.planechasers.core.Commanders"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name="com.fabiopievani.planechasers.archenemy.ArchenemyLife"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.fabiopievani.planechasers.core.Life"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.fabiopievani.planechasers.archenemy.Schemes"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.fabiopievani.planechasers.core.Planes"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.fabiopievani.planechasers.archenemy.PermanentSchemesWindow2"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.fabiopievani.planechasers.core.Menu"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
