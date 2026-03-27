@@ -28,8 +28,16 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.625" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/centerGuide90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
     <ImageView
         android:id="@+id/bg_player1"
+        android:contentDescription="@string/background_for_player_one"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
@@ -40,6 +48,7 @@
 
     <ImageView
         android:id="@+id/bg_player2"
+        android:contentDescription="@string/background_for_player_two"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
@@ -50,6 +59,7 @@
 
     <ImageView
         android:id="@+id/bg_player3"
+        android:contentDescription="@string/background_for_player_three"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:rotation="180"
@@ -61,6 +71,7 @@
 
     <ImageView
         android:id="@+id/bg_player4"
+        android:contentDescription="@string/background_for_player_four"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:rotation="180"
@@ -78,10 +89,8 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/life_mask" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -101,11 +110,10 @@
         android:layout_height="50dp"
         android:background="@drawable/button_commander_damage"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide625"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide625"
+        app:layout_constraintVertical_bias="0.950" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/commander_3press"
@@ -114,11 +122,10 @@
         android:background="@drawable/button_commander_damage"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide90"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide90"
+        app:layout_constraintVertical_bias="0.050" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/commander_4press"
@@ -149,11 +156,10 @@
         android:layout_height="50dp"
         android:background="@drawable/button_poison_damage"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide90"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide90"
+        app:layout_constraintVertical_bias="0.950" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/poison_3press"
@@ -162,10 +168,9 @@
         android:background="@drawable/button_poison_damage"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.665"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/centerGuide625"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide625"
         app:layout_constraintVertical_bias="0.046" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -198,11 +203,10 @@
         android:layout_height="80dp"
         android:background="@drawable/button_minus"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.645"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide625"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide625"
+        app:layout_constraintVertical_bias="0.730" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/meno1_3"
@@ -210,11 +214,10 @@
         android:layout_height="80dp"
         android:background="@drawable/button_minus"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide90"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide90"
+        app:layout_constraintVertical_bias="0.270" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/meno1_4"
@@ -244,11 +247,10 @@
         android:layout_height="80dp"
         android:background="@drawable/button_plus"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide90"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide90"
+        app:layout_constraintVertical_bias="0.730" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/piu1_3"
@@ -280,6 +282,7 @@
         android:layout_height="40dp"
         android:background="@drawable/button_planes"
         android:fontFamily="@font/cerebri_bold"
+        android:includeFontPadding="false"
         android:text="@string/planes"
         android:textColor="#EAEAEA"
         android:textSize="20sp"
@@ -287,7 +290,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/reset"
@@ -295,6 +298,7 @@
         android:layout_height="40dp"
         android:background="@drawable/button_reset"
         android:fontFamily="@font/cerebri_bold"
+        android:includeFontPadding="false"
         android:text="@string/reset"
         android:textColor="#EAEAEA"
         android:textSize="20sp"
@@ -302,7 +306,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.668" />
+        app:layout_constraintVertical_bias="0.65" />
 
     <TextView
         android:id="@+id/poison_1"
@@ -331,11 +335,10 @@
         android:textColor="#EAEAEA"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide90"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide90"
+        app:layout_constraintVertical_bias="0.950" />
 
     <TextView
         android:id="@+id/poison_3"
@@ -349,11 +352,10 @@
         android:textColor="#EAEAEA"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.665"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide625"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide625"
+        app:layout_constraintVertical_bias="0.050" />
 
     <TextView
         android:id="@+id/poison_4"
@@ -399,11 +401,10 @@
         android:textColor="#EAEAEA"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide625"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide625"
+        app:layout_constraintVertical_bias="0.950" />
 
     <TextView
         android:id="@+id/commander_3"
@@ -417,11 +418,10 @@
         android:textColor="#EAEAEA"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
+        app:layout_constraintStart_toStartOf="@id/centerGuide90"
+        app:layout_constraintEnd_toEndOf="@id/centerGuide90"
+        app:layout_constraintVertical_bias="0.050" />
 
     <TextView
         android:id="@+id/commander_4"
@@ -463,18 +463,16 @@
         android:layout_height="80dp"
         android:fontFamily="@font/cerebri"
         android:gravity="center"
-        android:scaleX="2"
-        android:scaleY="2"
+        android:includeFontPadding="false"
         android:text="@string/_40"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="36sp"
+        android:textSize="72sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/piu1_2"
+        app:layout_constraintStart_toEndOf="@+id/meno1_2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintVertical_bias="0.730" />
 
     <TextView
         android:id="@+id/segna_vita3"
@@ -483,18 +481,16 @@
         android:fontFamily="@font/cerebri"
         android:gravity="center"
         android:rotation="180"
-        android:scaleX="2"
-        android:scaleY="2"
+        android:includeFontPadding="false"
         android:text="@string/_40"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="36sp"
+        android:textSize="72sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/meno1_3"
+        app:layout_constraintStart_toEndOf="@+id/piu1_3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
+        app:layout_constraintVertical_bias="0.270" />
 
     <TextView
         android:id="@+id/segna_vita4"
@@ -502,8 +498,8 @@
         android:layout_height="80dp"
         android:fontFamily="@font/cerebri"
         android:gravity="center"
-        android:includeFontPadding="false"
         android:rotation="180"
+        android:includeFontPadding="false"
         android:text="@string/_40"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
@@ -516,14 +512,16 @@
 
     <ImageView
         android:id="@+id/swipe_life"
-        android:layout_width="751dp"
-        android:layout_height="391dp"
-        android:layout_marginEnd="100dp"
+        android:contentDescription="@null"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintWidth_percent="0.9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/empty_view" />
 

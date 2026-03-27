@@ -20,4 +20,8 @@
     <string name="ongoing">ongoing</string>
     <string name="archenemy">archenemy</string>
     <string name="classic">classic</string>
+    <string name="background_for_player_one">background for player one</string>
+    <string name="background_for_player_two">background for player two</string>
+    <string name="background_for_player_three">background for player three</string>
+    <string name="background_for_player_four">background for player four</string>
 </resources>

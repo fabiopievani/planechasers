@@ -28,11 +28,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/archenemy"
-        android:layout_width="270dp"
+        android:layout_width="250dp"
         android:layout_height="60dp"
         android:background="@drawable/button_menu_selection"
         android:fontFamily="@font/cerebri"
         android:text="@string/archenemy"
+        android:includeFontPadding="false"
         android:textColor="#EAEAEA"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -44,11 +45,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/classic"
-        android:layout_width="270dp"
+        android:layout_width="250dp"
         android:layout_height="60dp"
         android:background="@drawable/button_menu_selection"
         android:fontFamily="@font/cerebri"
         android:text="@string/classic"
+        android:includeFontPadding="false"
         android:textColor="#EAEAEA"
         android:textSize="36sp"
         android:textStyle="bold"
