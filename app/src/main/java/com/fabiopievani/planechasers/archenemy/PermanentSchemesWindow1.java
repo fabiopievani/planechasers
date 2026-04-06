@@ -1,5 +1,6 @@
 package com.fabiopievani.planechasers.archenemy;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import android.content.Intent;
@@ -97,13 +98,14 @@ public class PermanentSchemesWindow1 extends AppCompatActivity {
                 finish();
             }
         });
-    }
 
-    public void onBackPressed() {
-        super.onBackPressed();
-        startActivity(new Intent(PermanentSchemesWindow1.this, Schemes.class));
-        overridePendingTransition(R.anim.animation_left_to_right_enter, R.anim.animation_left_to_right_exit);
-        finish();
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                startActivity(new Intent(PermanentSchemesWindow1.this, Schemes.class));
+                overridePendingTransition(R.anim.animation_left_to_right_enter, R.anim.animation_left_to_right_exit);
+                finish();
+            }
+        });
     }
-
 }

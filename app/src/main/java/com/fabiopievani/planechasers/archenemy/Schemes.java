@@ -1,11 +1,13 @@
 package com.fabiopievani.planechasers.archenemy;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.View;
 import android.view.WindowManager;
@@ -73,7 +75,7 @@ public class Schemes extends AppCompatActivity {
 
         next_scheme.setOnClickListener(v -> {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(Schemes.this);
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             builder1.setMessage("Go to the next scheme?")
                     .setCancelable(false)
                     .setPositiveButton("Yes", (dialogInterface, i) -> {
@@ -123,28 +125,30 @@ public class Schemes extends AppCompatActivity {
             }
         });
 
-    }
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(Schemes.this);
 
-    public void onBackPressed() {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(Schemes.this);
+                myVib.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
 
-        myVib.vibrate(200);
+                builder1.setMessage("Go back to main menu, you will lose all preferences?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", (dialogInterface, i) -> {
+                            startActivity(new Intent(Schemes.this, Menu.class));
+                            SharedPreferences preferences = getSharedPreferences("planechasers_prefs", MODE_PRIVATE);
+                            preferences.edit().clear().apply();
+                            overridePendingTransition(R.anim.animation_bottom_to_top_enter, R.anim.animation_bottom_to_top_exit);
+                            finish();
+                        })
 
-        builder1.setMessage("Go back to main menu, you will lose all preferences?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", (dialogInterface, i) -> {
-                    startActivity(new Intent(Schemes.this, Menu.class));
-                    SharedPreferences preferences = getSharedPreferences("planechasers_prefs", MODE_PRIVATE);
-                    preferences.edit().clear().apply();
-                    overridePendingTransition(R.anim.animation_bottom_to_top_enter, R.anim.animation_bottom_to_top_exit);
-                    finish();
-                })
+                        .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel());
+                AlertDialog alert = builder1.create();
+                alert.setTitle("Warning");
+                alert.show();
 
-                .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel());
-        AlertDialog alert = builder1.create();
-        alert.setTitle("Warning");
-        alert.show();
-
+            }
+        });
     }
 }
 

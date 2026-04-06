@@ -12,7 +12,7 @@
 <!-- Bottone -->
 <item android:bottom="2dp">
     <shape>
-        <solid android:color="#6FB740"/>
+        <solid android:color="#EBE8DB"/>
         <corners android:radius="20dp"/>
     </shape>
 </item>

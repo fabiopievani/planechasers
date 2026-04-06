@@ -37,7 +37,7 @@
 
     <ImageView
         android:id="@+id/bg_player1"
-        android:contentDescription="@string/background_for_player_one"
+        android:contentDescription="@string/background_for_player_1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
@@ -48,7 +48,7 @@
 
     <ImageView
         android:id="@+id/bg_player2"
-        android:contentDescription="@string/background_for_player_two"
+        android:contentDescription="@string/background_for_player_2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
@@ -59,7 +59,7 @@
 
     <ImageView
         android:id="@+id/bg_player3"
-        android:contentDescription="@string/background_for_player_three"
+        android:contentDescription="@string/background_for_player_3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:rotation="180"
@@ -71,7 +71,7 @@
 
     <ImageView
         android:id="@+id/bg_player4"
-        android:contentDescription="@string/background_for_player_four"
+        android:contentDescription="@string/background_for_player_4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:rotation="180"
@@ -82,9 +82,9 @@
         app:layout_constraintBottom_toTopOf="@id/bg_player1" />
 
     <ImageView
-        android:id="@+id/maschera"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:id="@+id/life_mask"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:importantForAccessibility="no"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,11 +93,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/life_mask" />
 
+
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/commander_1press"
+        android:id="@+id/commander_dmg1_button"
+        android:contentDescription="@string/increase_commander_damage_of_player_1_long_press_to_reset"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_commander_damage"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide10"
@@ -105,10 +108,11 @@
         app:layout_constraintVertical_bias="0.950" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/commander_2press"
+        android:id="@+id/commander_dmg2_button"
+        android:contentDescription="@string/increase_commander_damage_of_player_2_long_press_to_reset"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_commander_damage"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide625"
@@ -116,10 +120,11 @@
         app:layout_constraintVertical_bias="0.950" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/commander_3press"
+        android:id="@+id/commander_dmg3_button"
+        android:contentDescription="@string/increase_commander_damage_of_player_3_long_press_to_reset"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_commander_damage"
+        android:background="@android:color/transparent"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -128,22 +133,25 @@
         app:layout_constraintVertical_bias="0.050" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/commander_4press"
+        android:id="@+id/commander_dmg4_button"
+        android:contentDescription="@string/increase_commander_damage_of_player_4_long_press_to_reset"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_commander_damage"
+        android:background="@android:color/transparent"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide375"
         app:layout_constraintEnd_toEndOf="@id/centerGuide375"
-        app:layout_constraintVertical_bias="0.050" />
+        app:layout_constraintVertical_bias="0.050"
+        tools:ignore="HardcodedText" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/poison_1press"
+        android:id="@+id/poison_dmg1_button"
+        android:contentDescription="@string/increase_poison_damage_of_player_1_long_press_to_reset"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_poison_damage"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide375"
@@ -151,10 +159,11 @@
         app:layout_constraintVertical_bias="0.950" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/poison_2press"
+        android:id="@+id/poison_dmg2_button"
+        android:contentDescription="@string/increase_poison_damage_of_player_2_long_press_to_reset"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_poison_damage"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide90"
@@ -162,10 +171,11 @@
         app:layout_constraintVertical_bias="0.950" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/poison_3press"
+        android:id="@+id/poison_dmg3_button"
+        android:contentDescription="@string/increase_poison_damage_of_player_3_long_press_to_reset"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_poison_damage"
+        android:background="@android:color/transparent"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -174,10 +184,11 @@
         app:layout_constraintVertical_bias="0.046" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/poison_4press"
+        android:id="@+id/poison_dmg4_button"
+        android:contentDescription="@string/increase_poison_damage_of_player_4_long_press_to_reset"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_poison_damage"
+        android:background="@android:color/transparent"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.148"
@@ -187,7 +198,8 @@
         app:layout_constraintVertical_bias="0.050" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/meno1_1"
+        android:id="@+id/minus_player1"
+        android:contentDescription="@string/decrease_life_of_player_1"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:background="@drawable/button_minus"
@@ -198,7 +210,8 @@
         app:layout_constraintVertical_bias="0.730" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/meno1_2"
+        android:id="@+id/minus_player2"
+        android:contentDescription="@string/decrease_life_of_player_2"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:background="@drawable/button_minus"
@@ -209,9 +222,11 @@
         app:layout_constraintVertical_bias="0.730" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/meno1_3"
+        android:id="@+id/minus_player3"
+        android:contentDescription="@string/decrease_life_of_player_3"
         android:layout_width="100dp"
         android:layout_height="80dp"
+        android:rotation="180"
         android:background="@drawable/button_minus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -220,9 +235,11 @@
         app:layout_constraintVertical_bias="0.270" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/meno1_4"
+        android:id="@+id/minus_player4"
+        android:contentDescription="@string/decrease_life_of_player_4"
         android:layout_width="100dp"
         android:layout_height="80dp"
+        android:rotation="180"
         android:background="@drawable/button_minus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -231,7 +248,8 @@
         app:layout_constraintVertical_bias="0.270" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/piu1_1"
+        android:id="@+id/plus_player1"
+        android:contentDescription="@string/increase_life_of_player_1"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:background="@drawable/button_plus"
@@ -242,7 +260,8 @@
         app:layout_constraintVertical_bias="0.730" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/piu1_2"
+        android:id="@+id/plus_player2"
+        android:contentDescription="@string/increase_life_of_player_2"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:background="@drawable/button_plus"
@@ -253,21 +272,25 @@
         app:layout_constraintVertical_bias="0.730" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/piu1_3"
+        android:id="@+id/plus_player3"
+        android:contentDescription="@string/increase_life_of_player_3"
         android:layout_width="100dp"
         android:layout_height="80dp"
+        android:rotation="180"
         android:background="@drawable/button_plus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.643"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
+        app:layout_constraintVertical_bias="0.270" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/piu1_4"
+        android:id="@+id/plus_player4"
+        android:contentDescription="@string/increase_life_of_player_4"
         android:layout_width="100dp"
         android:layout_height="80dp"
+        android:rotation="180"
         android:background="@drawable/button_plus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -278,14 +301,22 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/planes_from_life"
+        android:contentDescription="@string/move_to_plane_section"
         android:layout_width="135dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:background="@drawable/button_planes"
         android:fontFamily="@font/cerebri_bold"
         android:includeFontPadding="false"
         android:text="@string/planes"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:textColor="#EAEAEA"
-        android:textSize="20sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="28sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -294,30 +325,46 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/reset"
+        android:contentDescription="@string/reset_life"
         android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:background="@drawable/button_reset"
-        android:fontFamily="@font/cerebri_bold"
+        android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
         android:text="@string/reset"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:textColor="#EAEAEA"
-        android:textSize="20sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="20sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.68" />
 
     <TextView
-        android:id="@+id/poison_1"
+        android:id="@+id/poison_dmg1"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
+        android:background="@drawable/button_poison_damage"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_0"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="40sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide375"
@@ -325,15 +372,23 @@
         app:layout_constraintVertical_bias="0.950" />
 
     <TextView
-        android:id="@+id/poison_2"
+        android:id="@+id/poison_dmg2"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
+        android:background="@drawable/button_poison_damage"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_0"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="40sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide90"
@@ -341,16 +396,24 @@
         app:layout_constraintVertical_bias="0.950" />
 
     <TextView
-        android:id="@+id/poison_3"
+        android:id="@+id/poison_dmg3"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
         android:rotation="180"
+        android:background="@drawable/button_poison_damage"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_0"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="40sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide625"
@@ -358,16 +421,24 @@
         app:layout_constraintVertical_bias="0.050" />
 
     <TextView
-        android:id="@+id/poison_4"
+        android:id="@+id/poison_dmg4"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
         android:rotation="180"
+        android:background="@drawable/button_poison_damage"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_0"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="40sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide10"
@@ -375,15 +446,23 @@
         app:layout_constraintVertical_bias="0.050" />
 
     <TextView
-        android:id="@+id/commander_1"
+        android:id="@+id/commander_dmg1"
+        android:background="@drawable/button_commander_damage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_0"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="40sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide10"
@@ -391,15 +470,23 @@
         app:layout_constraintVertical_bias="0.950" />
 
     <TextView
-        android:id="@+id/commander_2"
+        android:id="@+id/commander_dmg2"
+        android:background="@drawable/button_commander_damage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_0"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="40sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide625"
@@ -407,16 +494,24 @@
         app:layout_constraintVertical_bias="0.950" />
 
     <TextView
-        android:id="@+id/commander_3"
+        android:id="@+id/commander_dmg3"
+        android:background="@drawable/button_commander_damage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
         android:rotation="180"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_0"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="40sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide90"
@@ -424,16 +519,24 @@
         app:layout_constraintVertical_bias="0.050" />
 
     <TextView
-        android:id="@+id/commander_4"
+        android:id="@+id/commander_dmg4"
+        android:background="@drawable/button_commander_damage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:fontFamily="@font/cerebri"
         android:includeFontPadding="false"
         android:rotation="180"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_0"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="40sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="40sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/centerGuide375"
@@ -441,76 +544,108 @@
         app:layout_constraintVertical_bias="0.050" />
 
     <TextView
-        android:id="@+id/segna_vita1"
+        android:id="@+id/life_counter1"
+        android:background="@drawable/background_life_counter"
         android:layout_width="110dp"
         android:layout_height="80dp"
         android:fontFamily="@font/cerebri"
         android:gravity="center"
         android:includeFontPadding="false"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_40"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="72sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="72sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/piu1_1"
-        app:layout_constraintStart_toEndOf="@+id/meno1_1"
+        app:layout_constraintEnd_toStartOf="@+id/plus_player1"
+        app:layout_constraintStart_toEndOf="@+id/minus_player1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.730" />
 
     <TextView
-        android:id="@+id/segna_vita2"
+        android:id="@+id/life_counter2"
+        android:background="@drawable/background_life_counter"
         android:layout_width="110dp"
         android:layout_height="80dp"
         android:fontFamily="@font/cerebri"
         android:gravity="center"
         android:includeFontPadding="false"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_40"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="72sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="72sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/piu1_2"
-        app:layout_constraintStart_toEndOf="@+id/meno1_2"
+        app:layout_constraintEnd_toStartOf="@+id/plus_player2"
+        app:layout_constraintStart_toEndOf="@+id/minus_player2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.730" />
 
     <TextView
-        android:id="@+id/segna_vita3"
+        android:id="@+id/life_counter3"
+        android:background="@drawable/background_life_counter"
         android:layout_width="110dp"
         android:layout_height="80dp"
         android:fontFamily="@font/cerebri"
         android:gravity="center"
         android:rotation="180"
         android:includeFontPadding="false"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_40"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="72sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="72sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/meno1_3"
-        app:layout_constraintStart_toEndOf="@+id/piu1_3"
+        app:layout_constraintEnd_toStartOf="@+id/minus_player3"
+        app:layout_constraintStart_toEndOf="@+id/plus_player3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.270" />
 
     <TextView
-        android:id="@+id/segna_vita4"
+        android:id="@+id/life_counter4"
+        android:background="@drawable/background_life_counter"
         android:layout_width="110dp"
         android:layout_height="80dp"
         android:fontFamily="@font/cerebri"
         android:gravity="center"
         android:rotation="180"
         android:includeFontPadding="false"
+        android:shadowColor="#000000"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
         android:text="@string/_40"
         android:textAlignment="center"
         android:textColor="#EAEAEA"
-        android:textSize="72sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="72sp"
+        android:autoSizeStepGranularity="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/meno1_4"
-        app:layout_constraintStart_toEndOf="@+id/piu1_4"
+        app:layout_constraintEnd_toStartOf="@+id/minus_player4"
+        app:layout_constraintStart_toEndOf="@+id/plus_player4"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.270" />
 
-    <ImageView
+<ImageView
         android:id="@+id/swipe_life"
         android:contentDescription="@null"
         android:layout_width="0dp"

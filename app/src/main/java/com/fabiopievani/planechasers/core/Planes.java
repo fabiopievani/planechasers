@@ -1,11 +1,13 @@
 package com.fabiopievani.planechasers.core;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.View;
 import android.view.WindowManager;
@@ -29,7 +31,7 @@ public class Planes extends AppCompatActivity {
     public Button toLife;
     public Button toSchemes;
     public ImageView piano;
-    List<Integer> myImageListPlanes = Arrays.asList(R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4, R.drawable.image5, R.drawable.image6, R.drawable.image7, R.drawable.image8, R.drawable.image9, R.drawable.image10, R.drawable.image11, R.drawable.image12, R.drawable.image13, R.drawable.image14, R.drawable.image15, R.drawable.image16, R.drawable.image17, R.drawable.image18, R.drawable.image19, R.drawable.image20, R.drawable.image21, R.drawable.image22, R.drawable.image23, R.drawable.image24, R.drawable.image25, R.drawable.image26, R.drawable.image27, R.drawable.image28, R.drawable.image29, R.drawable.image30, R.drawable.image31, R.drawable.image32, R.drawable.image33, R.drawable.image34, R.drawable.image35, R.drawable.image36, R.drawable.image37, R.drawable.image38, R.drawable.image39, R.drawable.image40, R.drawable.image41, R.drawable.image42, R.drawable.image43, R.drawable.image44, R.drawable.image45, R.drawable.image46, R.drawable.image47, R.drawable.image48, R.drawable.image49, R.drawable.image50, R.drawable.image51, R.drawable.image52, R.drawable.image53, R.drawable.image54, R.drawable.image55, R.drawable.image56, R.drawable.image57, R.drawable.image58, R.drawable.image59, R.drawable.image60, R.drawable.image61, R.drawable.image62, R.drawable.image63, R.drawable.image64, R.drawable.image65, R.drawable.image66, R.drawable.image67, R.drawable.image68, R.drawable.image69, R.drawable.image70, R.drawable.image71, R.drawable.image72, R.drawable.image73, R.drawable.image74, R.drawable.image75, R.drawable.image76, R.drawable.image77, R.drawable.image78, R.drawable.image79, R.drawable.image80, R.drawable.image81, R.drawable.image82, R.drawable.image83, R.drawable.image84, R.drawable.image85, R.drawable.image86, R.drawable.image87, R.drawable.image88, R.drawable.image89, R.drawable.image90, R.drawable.image91, R.drawable.image92, R.drawable.image93, R.drawable.image94, R.drawable.image95, R.drawable.image96, R.drawable.image97, R.drawable.image98, R.drawable.image99, R.drawable.image100, R.drawable.image101, R.drawable.image102, R.drawable.image103, R.drawable.image104, R.drawable.image105, R.drawable.image106, R.drawable.image107, R.drawable.image108, R.drawable.image109, R.drawable.image110, R.drawable.image111, R.drawable.image112, R.drawable.image113, R.drawable.image114, R.drawable.image115, R.drawable.image116, R.drawable.image117, R.drawable.image118, R.drawable.image119, R.drawable.image120, R.drawable.image121, R.drawable.image122, R.drawable.image123, R.drawable.image124, R.drawable.image125, R.drawable.image126, R.drawable.image127, R.drawable.image128, R.drawable.image129, R.drawable.image130, R.drawable.image131, R.drawable.image132, R.drawable.image133, R.drawable.image134, R.drawable.image135, R.drawable.image136, R.drawable.image137, R.drawable.image138, R.drawable.image139, R.drawable.image140, R.drawable.image141, R.drawable.image142, R.drawable.image143, R.drawable.image144, R.drawable.image145, R.drawable.image146, R.drawable.image147);
+    List<Integer> myImageListPlanes = Arrays.asList(R.drawable.plane1, R.drawable.plane2, R.drawable.plane3, R.drawable.plane4, R.drawable.plane5, R.drawable.plane6, R.drawable.plane7, R.drawable.plane8, R.drawable.plane9, R.drawable.plane10, R.drawable.plane11, R.drawable.plane12, R.drawable.plane13, R.drawable.plane14, R.drawable.plane15, R.drawable.plane16, R.drawable.plane17, R.drawable.plane18, R.drawable.plane19, R.drawable.plane20, R.drawable.plane21, R.drawable.plane22, R.drawable.plane23, R.drawable.plane24, R.drawable.plane25, R.drawable.plane26, R.drawable.plane27, R.drawable.plane28, R.drawable.plane29, R.drawable.plane30, R.drawable.plane31, R.drawable.plane32, R.drawable.plane33, R.drawable.plane34, R.drawable.plane35, R.drawable.plane36, R.drawable.plane37, R.drawable.plane38, R.drawable.plane39, R.drawable.plane40, R.drawable.plane41, R.drawable.plane42, R.drawable.plane43, R.drawable.plane44, R.drawable.plane45, R.drawable.plane46, R.drawable.plane47, R.drawable.plane48, R.drawable.plane49, R.drawable.plane50, R.drawable.plane51, R.drawable.plane52, R.drawable.plane53, R.drawable.plane54, R.drawable.plane55, R.drawable.plane56, R.drawable.plane57, R.drawable.plane58, R.drawable.plane59, R.drawable.plane60, R.drawable.plane61, R.drawable.plane62, R.drawable.plane63, R.drawable.plane64, R.drawable.plane65, R.drawable.plane66, R.drawable.plane67, R.drawable.plane68, R.drawable.plane69, R.drawable.plane70, R.drawable.plane71, R.drawable.plane72, R.drawable.plane73, R.drawable.plane74, R.drawable.plane75, R.drawable.plane76, R.drawable.plane77, R.drawable.plane78, R.drawable.plane79, R.drawable.plane80, R.drawable.plane81, R.drawable.plane82, R.drawable.plane83, R.drawable.plane84, R.drawable.plane85, R.drawable.plane86, R.drawable.plane87, R.drawable.plane88, R.drawable.plane89, R.drawable.plane90, R.drawable.plane91, R.drawable.plane92, R.drawable.plane93, R.drawable.plane94, R.drawable.plane95, R.drawable.plane96, R.drawable.plane97, R.drawable.plane98, R.drawable.plane99, R.drawable.plane100, R.drawable.plane101, R.drawable.plane102, R.drawable.plane103, R.drawable.plane104, R.drawable.plane105, R.drawable.plane106, R.drawable.plane107, R.drawable.plane108, R.drawable.plane109, R.drawable.plane110, R.drawable.plane111, R.drawable.plane112, R.drawable.plane113, R.drawable.plane114, R.drawable.plane115, R.drawable.plane116, R.drawable.plane117, R.drawable.plane118, R.drawable.plane119, R.drawable.plane120, R.drawable.plane121, R.drawable.plane122, R.drawable.plane123, R.drawable.plane124, R.drawable.plane125, R.drawable.plane126, R.drawable.plane127, R.drawable.plane128, R.drawable.plane129, R.drawable.plane130, R.drawable.plane131, R.drawable.plane132, R.drawable.plane133, R.drawable.plane134, R.drawable.plane135, R.drawable.plane136, R.drawable.plane137, R.drawable.plane138, R.drawable.plane139, R.drawable.plane140, R.drawable.plane141, R.drawable.plane142, R.drawable.plane143, R.drawable.plane144, R.drawable.plane145, R.drawable.plane146, R.drawable.plane147);
     public int[] indiciPiani = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146};
     private Vibrator myVib;
     public int selector;
@@ -77,7 +79,7 @@ public class Planes extends AppCompatActivity {
 
         next_plane.setOnClickListener(v -> {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(Planes.this);
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
             builder1.setMessage("Go to the next plane?")
 
                     .setCancelable(false)
@@ -134,29 +136,29 @@ public class Planes extends AppCompatActivity {
             }
         });
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(Planes.this);
+
+                myVib.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
+
+                builder1.setMessage("Go back to main menu, you will lose all preferences?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", (dialogInterface, i) -> {
+                            startActivity(new Intent(Planes.this, Menu.class));
+                            SharedPreferences preferences = getSharedPreferences("planechasers_prefs", MODE_PRIVATE);
+                            preferences.edit().clear().apply();
+                            overridePendingTransition(R.anim.animation_bottom_to_top_enter, R.anim.animation_bottom_to_top_exit);
+                            finish();
+                        })
+
+                        .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel());
+
+                AlertDialog alert = builder1.create();
+                alert.setTitle("Warning");
+                alert.show();
+            }
+        });
     }
-
-    public void onBackPressed() {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(Planes.this);
-
-        myVib.vibrate(200);
-
-        builder1.setMessage("Go back to main menu, you will lose all preferences?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", (dialogInterface, i) -> {
-                    startActivity(new Intent(Planes.this, Menu.class));
-                    SharedPreferences preferences = getSharedPreferences("planechasers_prefs", MODE_PRIVATE);
-                    preferences.edit().clear().apply();
-                    overridePendingTransition(R.anim.animation_bottom_to_top_enter, R.anim.animation_bottom_to_top_exit);
-                    finish();
-                })
-
-                .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel());
-
-        AlertDialog alert = builder1.create();
-        alert.setTitle("Warning");
-        alert.show();
-
-    }
-
 }

@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#BBD869" />
-    <corners android:radius="30dp" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- Ombra -->
+<item android:top="2dp">
+    <shape>
+        <solid android:color="#000000"/>
+        <corners android:radius="30dp"/>
+    </shape>
+</item>
+
+<!-- Bottone -->
+<item android:bottom="2dp">
+    <shape>
+        <solid android:color="#BBD869"/>
+        <corners android:radius="30dp"/>
+    </shape>
+</item>
+
+</layer-list>

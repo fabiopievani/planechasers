@@ -1,6 +1,7 @@
 package com.fabiopievani.planechasers.core;
 
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
@@ -10,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Base64;
 import android.view.MotionEvent;
@@ -17,7 +19,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.fabiopievani.planechasers.utility.OnSwipeTouchListener;
 import com.fabiopievani.planechasers.utility.Shortcuts;
@@ -96,40 +97,40 @@ public class Life extends AppCompatActivity {
         //Impedisce blocco schermo
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        TextView segna_vita1 = findViewById(R.id.segna_vita1);
-        TextView segna_vita2 = findViewById(R.id.segna_vita2);
-        TextView segna_vita3 = findViewById(R.id.segna_vita3);
-        TextView segna_vita4 = findViewById(R.id.segna_vita4);
+        TextView segna_vita1 = findViewById(R.id.life_counter1);
+        TextView segna_vita2 = findViewById(R.id.life_counter2);
+        TextView segna_vita3 = findViewById(R.id.life_counter3);
+        TextView segna_vita4 = findViewById(R.id.life_counter4);
 
-        TextView commander1 = findViewById(R.id.commander_1);
-        TextView poison1 = findViewById(R.id.poison_1);
-        TextView commander2 = findViewById(R.id.commander_2);
-        TextView poison2 = findViewById(R.id.poison_2);
-        TextView commander3 = findViewById(R.id.commander_3);
-        TextView poison3 = findViewById(R.id.poison_3);
-        TextView commander4 = findViewById(R.id.commander_4);
-        TextView poison4 = findViewById(R.id.poison_4);
+        TextView commander1 = findViewById(R.id.commander_dmg1);
+        TextView poison1 = findViewById(R.id.poison_dmg1);
+        TextView commander2 = findViewById(R.id.commander_dmg2);
+        TextView poison2 = findViewById(R.id.poison_dmg2);
+        TextView commander3 = findViewById(R.id.commander_dmg3);
+        TextView poison3 = findViewById(R.id.poison_dmg3);
+        TextView commander4 = findViewById(R.id.commander_dmg4);
+        TextView poison4 = findViewById(R.id.poison_dmg4);
 
-        piu1_1 = findViewById(R.id.piu1_1);
-        piu1_2 = findViewById(R.id.piu1_2);
-        piu1_3 = findViewById(R.id.piu1_3);
-        piu1_4 = findViewById(R.id.piu1_4);
-        meno1_1 = findViewById(R.id.meno1_1);
-        meno1_2 = findViewById(R.id.meno1_2);
-        meno1_3 = findViewById(R.id.meno1_3);
-        meno1_4 = findViewById(R.id.meno1_4);
+        piu1_1 = findViewById(R.id.plus_player1);
+        piu1_2 = findViewById(R.id.plus_player2);
+        piu1_3 = findViewById(R.id.plus_player3);
+        piu1_4 = findViewById(R.id.plus_player4);
+        meno1_1 = findViewById(R.id.minus_player1);
+        meno1_2 = findViewById(R.id.minus_player2);
+        meno1_3 = findViewById(R.id.minus_player3);
+        meno1_4 = findViewById(R.id.minus_player4);
 
         reset = findViewById(R.id.reset);
         toPlanes = findViewById(R.id.planes_from_life);
 
-        commander_1press = findViewById(R.id.commander_1press);
-        commander_2press = findViewById(R.id.commander_2press);
-        commander_3press = findViewById(R.id.commander_3press);
-        commander_4press = findViewById(R.id.commander_4press);
-        poison_1press = findViewById(R.id.poison_1press);
-        poison_2press = findViewById(R.id.poison_2press);
-        poison_3press = findViewById(R.id.poison_3press);
-        poison_4press = findViewById(R.id.poison_4press);
+        commander_1press = findViewById(R.id.commander_dmg1_button);
+        commander_2press = findViewById(R.id.commander_dmg2_button);
+        commander_3press = findViewById(R.id.commander_dmg3_button);
+        commander_4press = findViewById(R.id.commander_dmg4_button);
+        poison_1press = findViewById(R.id.poison_dmg1_button);
+        poison_2press = findViewById(R.id.poison_dmg2_button);
+        poison_3press = findViewById(R.id.poison_dmg3_button);
+        poison_4press = findViewById(R.id.poison_dmg4_button);
 
         myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
@@ -144,16 +145,11 @@ public class Life extends AppCompatActivity {
         String percorso2 = (String) Shortcuts.CaricamentoDummy(getApplicationContext(), "percorso2", 1);
         String percorso3 = (String) Shortcuts.CaricamentoDummy(getApplicationContext(), "percorso3", 1);
         String percorso4 = (String) Shortcuts.CaricamentoDummy(getApplicationContext(), "percorso4", 1);
-        //if(!Objects.equals(percorso1, "") || !Objects.equals(percorso2, "") || !Objects.equals(percorso3, "") || !Objects.equals(percorso4, "")){
-       //     RelativeLayout relative = findViewById(R.id.background_life);
-       //     relative.setBackgroundResource(R.drawable.background_life_with_images);
-        //}
+
 
         //Con random selezionato
         int random_check = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "rand_check");
         if (random_check == 1) {
-            //RelativeLayout relative = findViewById(R.id.background_life);
-            //relative.setBackgroundResource(R.drawable.background_life_with_images);
             int rndAvatar1 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar1");
             int rndAvatar2 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar2");
             int rndAvatar3 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar3");
@@ -208,7 +204,7 @@ public class Life extends AppCompatActivity {
         reset.setOnClickListener(v -> {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(Life.this);
 
-            myVib.vibrate(100);
+            myVib.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
             builder1.setMessage("Reset life and counters?")
 
                     .setCancelable(false)
@@ -263,7 +259,7 @@ public class Life extends AppCompatActivity {
         });
 
         commander_1press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if (com_counter1 != 21) {
                 com_counter1++;
             }
@@ -273,7 +269,7 @@ public class Life extends AppCompatActivity {
 
         //Pressione prolungata per resettare i counter
         commander_1press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             com_counter1 = 0;
             commander1.setText(String.format(Locale.getDefault(), "%d", com_counter1));
             Shortcuts.SalvataggioDummy(getApplicationContext(), com_counter1, "com1");
@@ -281,7 +277,7 @@ public class Life extends AppCompatActivity {
         });
 
         poison_1press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if (pos_counter1 != 10) {
                 pos_counter1++;
             }
@@ -291,7 +287,7 @@ public class Life extends AppCompatActivity {
 
         //Pressione prolungata per resettare i counter
         poison_1press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             pos_counter1 = 0;
             poison1.setText(String.format(Locale.getDefault(), "%d", pos_counter1));
             Shortcuts.SalvataggioDummy(getApplicationContext(), pos_counter1, "pos1");
@@ -299,7 +295,7 @@ public class Life extends AppCompatActivity {
         });
 
         commander_2press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if (com_counter2 != 21) {
                 com_counter2++;
             }
@@ -308,15 +304,15 @@ public class Life extends AppCompatActivity {
         });
 
         commander_2press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             com_counter2 = 0;
-            commander2.setText(String.format(Locale.getDefault(), "%d", counter2));
+            commander2.setText(String.format(Locale.getDefault(), "%d", com_counter2));
             Shortcuts.SalvataggioDummy(getApplicationContext(), com_counter2, "com2");
             return true;
         });
 
         poison_2press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if (pos_counter2 != 10) {
                 pos_counter2++;
             }
@@ -325,7 +321,7 @@ public class Life extends AppCompatActivity {
         });
 
         poison_2press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             pos_counter2 = 0;
             poison2.setText(String.format(Locale.getDefault(), "%d", pos_counter2));
             Shortcuts.SalvataggioDummy(getApplicationContext(), pos_counter2, "pos2");
@@ -333,7 +329,7 @@ public class Life extends AppCompatActivity {
         });
 
         commander_3press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if (com_counter3 != 21) {
                 com_counter3++;
             }
@@ -342,7 +338,7 @@ public class Life extends AppCompatActivity {
         });
 
         commander_3press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             com_counter3 = 0;
             commander3.setText(String.format(Locale.getDefault(), "%d", com_counter3));
             Shortcuts.SalvataggioDummy(getApplicationContext(), com_counter3, "com3");
@@ -350,7 +346,7 @@ public class Life extends AppCompatActivity {
         });
 
         poison_3press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if (pos_counter3 != 10) {
                 pos_counter3++;
             }
@@ -359,7 +355,7 @@ public class Life extends AppCompatActivity {
         });
 
         poison_3press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             pos_counter3 = 0;
             poison3.setText(String.format(Locale.getDefault(), "%d", pos_counter3));
             Shortcuts.SalvataggioDummy(getApplicationContext(), pos_counter3, "pos3");
@@ -367,7 +363,7 @@ public class Life extends AppCompatActivity {
         });
 
         commander_4press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if (com_counter4 != 21) {
                 com_counter4++;
             }
@@ -376,7 +372,7 @@ public class Life extends AppCompatActivity {
         });
 
         commander_4press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             com_counter4 = 0;
             commander4.setText(String.format(Locale.getDefault(), "%d", com_counter4));
             Shortcuts.SalvataggioDummy(getApplicationContext(), com_counter4, "com4");
@@ -384,7 +380,7 @@ public class Life extends AppCompatActivity {
         });
 
         poison_4press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if (pos_counter4 != 10) {
                 pos_counter4++;
             }
@@ -393,7 +389,7 @@ public class Life extends AppCompatActivity {
         });
 
         poison_4press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             pos_counter4 = 0;
             poison4.setText(String.format(Locale.getDefault(), "%d", pos_counter4));
             Shortcuts.SalvataggioDummy(getApplicationContext(), pos_counter4, "pos4");
@@ -416,7 +412,7 @@ public class Life extends AppCompatActivity {
                             counter1++;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                         segna_vita1.setText(String.format(Locale.getDefault(), "%d", counter1));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), counter1, "vita1");
 
@@ -437,7 +433,7 @@ public class Life extends AppCompatActivity {
                     if (counter1 != 999) {
                         counter1++;
                     }
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                     segna_vita1.setText(String.format(Locale.getDefault(), "%d", counter1));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), counter1, "vita1");
                     mHandler.postDelayed(this, 80);
@@ -466,7 +462,7 @@ public class Life extends AppCompatActivity {
                             counter1--;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                         segna_vita1.setText(String.format(Locale.getDefault(), "%d", counter1));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), counter1, "vita1");
 
@@ -488,7 +484,7 @@ public class Life extends AppCompatActivity {
                         counter1--;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                     segna_vita1.setText(String.format(Locale.getDefault(), "%d", counter1));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), counter1, "vita1");
                     mHandler.postDelayed(this, 80);
@@ -513,7 +509,7 @@ public class Life extends AppCompatActivity {
                             counter2++;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                         segna_vita2.setText(String.format(Locale.getDefault(), "%d", counter2));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), counter2, "vita2");
 
@@ -534,7 +530,7 @@ public class Life extends AppCompatActivity {
                     if (counter2 != 999) {
                         counter2++;
                     }
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                     segna_vita2.setText(String.format(Locale.getDefault(), "%d", counter2));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), counter2, "vita2");
                     mHandler.postDelayed(this, 80);
@@ -558,7 +554,7 @@ public class Life extends AppCompatActivity {
                             counter2--;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                         segna_vita2.setText(String.format(Locale.getDefault(), "%d", counter2));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), counter2, "vita2");
 
@@ -580,7 +576,7 @@ public class Life extends AppCompatActivity {
                         counter2--;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                     segna_vita2.setText(String.format(Locale.getDefault(), "%d", counter2));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), counter2, "vita2");
                     mHandler.postDelayed(this, 80);
@@ -605,7 +601,7 @@ public class Life extends AppCompatActivity {
                             counter3++;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                         segna_vita3.setText(String.format(Locale.getDefault(), "%d", counter3));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), counter3, "vita3");
 
@@ -627,7 +623,7 @@ public class Life extends AppCompatActivity {
                         counter3++;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                     segna_vita3.setText(String.format(Locale.getDefault(), "%d", counter3));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), counter3, "vita3");
                     mHandler.postDelayed(this, 80);
@@ -651,7 +647,7 @@ public class Life extends AppCompatActivity {
                             counter3--;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                         segna_vita3.setText(String.format(Locale.getDefault(), "%d", counter3));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), counter3, "vita3");
 
@@ -673,7 +669,7 @@ public class Life extends AppCompatActivity {
                         counter3--;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                     segna_vita3.setText(String.format(Locale.getDefault(), "%d", counter3));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), counter3, "vita3");
                     mHandler.postDelayed(this, 80);
@@ -697,7 +693,7 @@ public class Life extends AppCompatActivity {
                             counter4++;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                         segna_vita4.setText(String.format(Locale.getDefault(), "%d", counter4));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), counter4, "vita4");
 
@@ -719,7 +715,7 @@ public class Life extends AppCompatActivity {
                         counter4++;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                     segna_vita4.setText(String.format(Locale.getDefault(), "%d", counter4));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), counter4, "vita4");
                     mHandler.postDelayed(this, 80);
@@ -743,7 +739,7 @@ public class Life extends AppCompatActivity {
                             counter4--;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                         segna_vita4.setText(String.format(Locale.getDefault(), "%d", counter4));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), counter4, "vita4");
 
@@ -765,7 +761,7 @@ public class Life extends AppCompatActivity {
                         counter4--;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                     segna_vita4.setText(String.format(Locale.getDefault(), "%d", counter4));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), counter4, "vita4");
                     mHandler.postDelayed(this, 80);
@@ -787,27 +783,29 @@ public class Life extends AppCompatActivity {
             }
         });
 
-    }
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(Life.this);
 
-    public void onBackPressed() {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(Life.this);
+                myVib.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
 
-        myVib.vibrate(200);
+                builder1.setMessage("Go back to main menu, you will lose all preferences?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", (dialogInterface, i) -> {
+                            startActivity(new Intent(Life.this, Menu.class));
+                            SharedPreferences preferences = getSharedPreferences("planechasers_prefs", MODE_PRIVATE);
+                            preferences.edit().clear().apply();
+                            overridePendingTransition(R.anim.animation_bottom_to_top_enter, R.anim.animation_bottom_to_top_exit);
+                            finish();
+                        })
 
-        builder1.setMessage("Go back to main menu, you will lose all preferences?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", (dialogInterface, i) -> {
-                    startActivity(new Intent(Life.this, Menu.class));
-                    SharedPreferences preferences = getSharedPreferences("planechasers_prefs", MODE_PRIVATE);
-                    preferences.edit().clear().apply();
-                    overridePendingTransition(R.anim.animation_bottom_to_top_enter, R.anim.animation_bottom_to_top_exit);
-                    finish();
-                })
-
-                .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel());
-        AlertDialog alert = builder1.create();
-        alert.setTitle("Warning");
-        alert.show();
+                        .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel());
+                AlertDialog alert = builder1.create();
+                alert.setTitle("Warning");
+                alert.show();
+            }
+        });
     }
 
     private void decodeBase64AndSetImage(String completeImageData, ImageView imageView) {

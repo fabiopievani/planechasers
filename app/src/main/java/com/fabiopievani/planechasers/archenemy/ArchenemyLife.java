@@ -1,5 +1,6 @@
 package com.fabiopievani.planechasers.archenemy;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
@@ -9,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Base64;
 import android.view.MotionEvent;
@@ -16,7 +18,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.fabiopievani.planechasers.core.Menu;
 import com.fabiopievani.planechasers.utility.OnSwipeTouchListener;
@@ -85,57 +86,51 @@ public class ArchenemyLife extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
-        TextView archenemy_segna_vita1 = findViewById(R.id.archenemy_segna_vita1);
-        TextView archenemy_segna_vita3 = findViewById(R.id.archenemy_segna_vita3);
+        TextView archenemy_segna_vita1 = findViewById(R.id.archenemy_life_counter);
+        TextView archenemy_segna_vita3 = findViewById(R.id.heroes_life_counter);
 
-        TextView archenemy_commander1 = findViewById(R.id.archenemy_commander_1);
-        TextView archenemy_poison1 = findViewById(R.id.archenemy_poison_1);
+        TextView archenemy_commander1 = findViewById(R.id.commander_dmg_archenemy);
+        TextView archenemy_poison1 = findViewById(R.id.poison_dmg_archenemy);
 
-        TextView archenemy_commander3 = findViewById(R.id.archenemy_commander_3);
-        TextView archenemy_poison3 = findViewById(R.id.archenemy_poison_3);
+        TextView archenemy_commander3 = findViewById(R.id.commander_dmg_heroes);
+        TextView archenemy_poison3 = findViewById(R.id.poison_dmg_heroes);
 
 
-        archenemy_piu1_1 = findViewById(R.id.archenemy_piu1_1);
-        archenemy_piu1_3 = findViewById(R.id.archenemy_piu1_3);
+        archenemy_piu1_1 = findViewById(R.id.plus_archenemy);
+        archenemy_piu1_3 = findViewById(R.id.plus_heroes);
 
-        archenemy_meno1_1 = findViewById(R.id.archenemy_meno1_1);
-        archenemy_meno1_3 = findViewById(R.id.archenemy_meno1_3);
+        archenemy_meno1_1 = findViewById(R.id.minus_archenemy);
+        archenemy_meno1_3 = findViewById(R.id.minus_heroes);
 
 
         archenemy_reset = findViewById(R.id.archenemy_reset);
         archenemy_toPlanes = findViewById(R.id.archenemy_planes_from_life);
         archenemy_toSchemes = findViewById(R.id.archenemy_schemes_from_life);
 
-        archenemy_commander_1press = findViewById(R.id.archenemy_commander_1press);
-        archenemy_commander_3press = findViewById(R.id.archenemy_commander_3press);
+        archenemy_commander_1press = findViewById(R.id.commander_dmg_archenemy_button);
+        archenemy_commander_3press = findViewById(R.id.commander_dmg_heroes_button);
 
-        archenemy_poison_1press = findViewById(R.id.archenemy_poison_1press);
-        archenemy_poison_3press = findViewById(R.id.archenemy_poison_3press);
+        archenemy_poison_1press = findViewById(R.id.poison_dmg_archenemy_button);
+        archenemy_poison_3press = findViewById(R.id.poison_dmg_heroes_button);
 
 
         myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
-        player_1 = findViewById(R.id.archenemy_bg_player1);
-        player_2 = findViewById(R.id.archenemy_bg_player2);
-        player_3 = findViewById(R.id.archenemy_bg_player3);
-        player_4 = findViewById(R.id.archenemy_bg_player4);
+        player_1 = findViewById(R.id.bg_archenemy);
+        player_2 = findViewById(R.id.bg_hero1);
+        player_3 = findViewById(R.id.bg_hero2);
+        player_4 = findViewById(R.id.bg_hero3);
 
-        forSwipe= findViewById(R.id.swipe_archenemy);
+        forSwipe= findViewById(R.id.swipe_life);
 
         String percorso1 = (String) Shortcuts.CaricamentoDummy(getApplicationContext(),"percorso1",1);
         String percorso2 = (String) Shortcuts.CaricamentoDummy(getApplicationContext(),"percorso2",1);
         String percorso3 = (String) Shortcuts.CaricamentoDummy(getApplicationContext(),"percorso3",1);
         String percorso4 = (String) Shortcuts.CaricamentoDummy(getApplicationContext(),"percorso4",1);
-        if(!Objects.equals(percorso1, "") || !Objects.equals(percorso2, "") || !Objects.equals(percorso3, "") || !Objects.equals(percorso4, "")){
-            RelativeLayout relative = findViewById(R.id.background_life);
-            relative.setBackgroundResource(R.drawable.background_life_with_images);
-        }
 
         //Con random
         int random_check =  Shortcuts.CaricamentoDummyVita(getApplicationContext(),"rand_check");
         if(random_check==1){
-            RelativeLayout relative = findViewById(R.id.background_life);
-            relative.setBackgroundResource(R.drawable.background_life_with_images);
             int rndAvatar1 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar1");
             int rndAvatar2 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar2");
             int rndAvatar3 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar3");
@@ -145,7 +140,6 @@ public class ArchenemyLife extends AppCompatActivity {
             player_3.setImageResource(myAvatarList.get(rndAvatar3));
             player_4.setImageResource(myAvatarList.get(rndAvatar4));
         }
-
 
         if(!Objects.equals(percorso1, "")) {
             decodeBase64AndSetImage(percorso1,player_1);
@@ -177,14 +171,14 @@ public class ArchenemyLife extends AppCompatActivity {
         archenemy_reset.setOnClickListener(v -> {
             AlertDialog.Builder builder1 = new AlertDialog.Builder(ArchenemyLife.this);
 
-            myVib.vibrate(100);
+            myVib.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
             builder1.setMessage("Reset life and counters?")
 
                     .setCancelable(false)
                     .setPositiveButton("Yes", (dialogInterface, i) -> {
 
-                        archenemy_counter1 = 40;
-                        archenemy_counter3 = 40;
+                        archenemy_counter1 = 60;
+                        archenemy_counter3 = 60;
                         archenemy_com_counter1 = 0;
                         archenemy_pos_counter1 = 0;
                         archenemy_com_counter3 = 0;
@@ -216,7 +210,7 @@ public class ArchenemyLife extends AppCompatActivity {
 
 
         archenemy_commander_1press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if(archenemy_com_counter1!=21){
                 archenemy_com_counter1++;
             }
@@ -225,7 +219,7 @@ public class ArchenemyLife extends AppCompatActivity {
         });
 
         archenemy_commander_1press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             archenemy_com_counter1 = 0;
             archenemy_commander1.setText(String.format(Locale.getDefault(), "%d", archenemy_com_counter1));
             Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_com_counter1, "archenemy_com1");
@@ -233,7 +227,7 @@ public class ArchenemyLife extends AppCompatActivity {
         });
 
         archenemy_poison_1press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if(archenemy_pos_counter1!=10){
                 archenemy_pos_counter1++;
             }
@@ -242,7 +236,7 @@ public class ArchenemyLife extends AppCompatActivity {
         });
 
         archenemy_poison_1press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             archenemy_pos_counter1 = 0;
             archenemy_poison1.setText(String.format(Locale.getDefault(), "%d", archenemy_pos_counter1));
             Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_pos_counter1, "archenemy_pos1");
@@ -250,7 +244,7 @@ public class ArchenemyLife extends AppCompatActivity {
         });
 
         archenemy_commander_3press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if(archenemy_com_counter3!=21){
                 archenemy_com_counter3++;
             }
@@ -259,7 +253,7 @@ public class ArchenemyLife extends AppCompatActivity {
         });
 
         archenemy_commander_3press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             archenemy_com_counter3 = 0;
             archenemy_commander3.setText(String.format(Locale.getDefault(), "%d", archenemy_com_counter3));
             Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_com_counter3, "archenemy_com3");
@@ -267,7 +261,7 @@ public class ArchenemyLife extends AppCompatActivity {
         });
 
         archenemy_poison_3press.setOnClickListener(v -> {
-            myVib.vibrate(5);
+            myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
             if(archenemy_pos_counter3!=10){
                 archenemy_pos_counter3++;
             }
@@ -276,7 +270,7 @@ public class ArchenemyLife extends AppCompatActivity {
         });
 
         archenemy_poison_3press.setOnLongClickListener(v -> {
-            myVib.vibrate(20);
+            myVib.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
             archenemy_pos_counter3 = 0;
             archenemy_poison3.setText(String.format(Locale.getDefault(), "%d", archenemy_pos_counter3));
             Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_pos_counter3, "archenemy_pos3");
@@ -299,7 +293,7 @@ public class ArchenemyLife extends AppCompatActivity {
                             archenemy_counter1++;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                         archenemy_segna_vita1.setText(String.format(Locale.getDefault(), "%d", archenemy_counter1));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_counter1, "archenemy_vita1");
 
@@ -321,7 +315,7 @@ public class ArchenemyLife extends AppCompatActivity {
                         archenemy_counter1++;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                     archenemy_segna_vita1.setText(String.format(Locale.getDefault(), "%d", archenemy_counter1));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_counter1, "archenemy_vita1");
                     mHandler.postDelayed(this, 80);
@@ -346,7 +340,7 @@ public class ArchenemyLife extends AppCompatActivity {
                             archenemy_counter1--;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                         archenemy_segna_vita1.setText(String.format(Locale.getDefault(), "%d", archenemy_counter1));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_counter1, "archenemy_vita1");
 
@@ -368,7 +362,7 @@ public class ArchenemyLife extends AppCompatActivity {
                         archenemy_counter1--;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                     archenemy_segna_vita1.setText(String.format(Locale.getDefault(), "%d", archenemy_counter1));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_counter1, "archenemy_vita1");
                     mHandler.postDelayed(this, 80);
@@ -392,7 +386,7 @@ public class ArchenemyLife extends AppCompatActivity {
                             archenemy_counter3++;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                         archenemy_segna_vita3.setText(String.format(Locale.getDefault(), "%d", archenemy_counter3));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_counter3, "archenemy_vita3");
 
@@ -414,7 +408,7 @@ public class ArchenemyLife extends AppCompatActivity {
                         archenemy_counter3++;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                     archenemy_segna_vita3.setText(String.format(Locale.getDefault(), "%d", archenemy_counter3));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_counter3, "archenemy_vita3");
                     mHandler.postDelayed(this, 80);
@@ -438,7 +432,7 @@ public class ArchenemyLife extends AppCompatActivity {
                             archenemy_counter3--;
                         }
 
-                        myVib.vibrate(10);
+                        myVib.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE));
                         archenemy_segna_vita3.setText(String.format(Locale.getDefault(), "%d", archenemy_counter3));
                         Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_counter3, "archenemy_vita3");
 
@@ -460,7 +454,7 @@ public class ArchenemyLife extends AppCompatActivity {
                         archenemy_counter3--;
                     }
 
-                    myVib.vibrate(5);
+                    myVib.vibrate(VibrationEffect.createOneShot(5, VibrationEffect.DEFAULT_AMPLITUDE));
                     archenemy_segna_vita3.setText(String.format(Locale.getDefault(), "%d", archenemy_counter3));
                     Shortcuts.SalvataggioDummy(getApplicationContext(), archenemy_counter3, "archenemy_vita3");
                     mHandler.postDelayed(this, 80);
@@ -493,29 +487,34 @@ public class ArchenemyLife extends AppCompatActivity {
             }
         });
 
-    }
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
 
-    public void onBackPressed() {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(ArchenemyLife.this);
+                myVib.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
 
-        myVib.vibrate(200);
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(ArchenemyLife.this);
 
-        builder1.setMessage("Go back to main menu, you will lose all preferences?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", (dialogInterface, i) -> {
-                    startActivity(new Intent(ArchenemyLife.this, Menu.class));
+                builder1.setMessage("Go back to main menu, you will lose all preferences?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", (dialogInterface, i) -> {
 
-                    SharedPreferences preferences = getSharedPreferences("planechasers_prefs", MODE_PRIVATE);
-                    preferences.edit().clear().apply();
+                            SharedPreferences preferences = getSharedPreferences("planechasers_prefs", MODE_PRIVATE);
+                            preferences.edit().clear().apply();
 
-                    overridePendingTransition(R.anim.animation_bottom_to_top_enter, R.anim.animation_bottom_to_top_exit);
-                    finish();
-                })
+                            startActivity(new Intent(ArchenemyLife.this, Menu.class));
+                            overridePendingTransition(R.anim.animation_bottom_to_top_enter, R.anim.animation_bottom_to_top_exit);
+                            finish();
+                        })
 
-                .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel());
-        AlertDialog alert = builder1.create();
-        alert.setTitle("Warning");
-        alert.show();
+                        .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.dismiss());
+
+                AlertDialog alert = builder1.create();
+                alert.setTitle("Warning");
+                alert.show();
+            }
+        });
+
     }
 
     private void decodeBase64AndSetImage(String completeImageData, ImageView imageView) {

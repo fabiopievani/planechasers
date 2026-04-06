@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class OnSwipeTouchListener implements OnTouchListener {
 
@@ -39,9 +40,9 @@ public class OnSwipeTouchListener implements OnTouchListener {
         }
 
         @Override
-        public boolean onFling(@NonNull MotionEvent e1, @NonNull MotionEvent e2, float velocityX, float velocityY) {
+        public boolean onFling(@Nullable MotionEvent e1, @Nullable MotionEvent e2, float velocityX, float velocityY) {
+            if (e1 == null || e2 == null) return false;
             boolean result = false;
-            try {
                 float diffY = e2.getY() - e1.getY();
                 float diffX = e2.getX() - e1.getX();
                 if (Math.abs(diffX) > Math.abs(diffY)) {
@@ -62,9 +63,7 @@ public class OnSwipeTouchListener implements OnTouchListener {
                     }
                     result = true;
                 }
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
+
             return result;
         }
     }
