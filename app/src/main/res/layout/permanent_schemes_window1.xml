@@ -9,11 +9,12 @@
 
     <ImageView
         android:id="@+id/perma1"
+        android:contentDescription="@string/permanent_scheme_number_1"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/perma4"
+        app:layout_constraintEnd_toStartOf="@+id/perma2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,12 +23,13 @@
 
     <ImageView
         android:id="@+id/perma2"
+        android:contentDescription="@string/permanent_scheme_number_2"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/perma5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -35,24 +37,26 @@
 
     <ImageView
         android:id="@+id/perma3"
+        android:contentDescription="@string/permanent_scheme_number_3"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/perma6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/perma2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/perma5" />
 
     <ImageView
         android:id="@+id/perma4"
+        android:contentDescription="@string/permanent_scheme_number_4"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/perma5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -61,6 +65,7 @@
 
     <ImageView
         android:id="@+id/perma5"
+        android:contentDescription="@string/permanent_scheme_number_5"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
@@ -74,120 +79,105 @@
 
     <ImageView
         android:id="@+id/perma6"
+        android:contentDescription="@string/permanent_scheme_number_6"
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/perma5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/perma6" />
 
-    <ImageView
-        android:id="@+id/swipe_toScheme"
-        android:layout_width="425dp"
-        android:layout_height="392dp"
-        android:layout_marginEnd="425dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/empty_view" />
 
     <ImageView
-        android:id="@+id/swipe_toPerma2"
-        android:layout_width="425dp"
-        android:layout_height="392dp"
+        android:id="@+id/swipe_permanent_schemes1"
+        android:contentDescription="@null"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintWidth_percent="0.9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/empty_view" />
 
     <CheckBox
         android:id="@+id/check1"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="10dp"
-        android:button="@drawable/check_icon_permanentschemes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:button="@drawable/check_icon_permanent_schemes"
         app:layout_constraintBottom_toTopOf="@+id/perma4"
         app:layout_constraintEnd_toEndOf="@+id/perma1"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/perma1"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/check2"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="10dp"
-        android:button="@drawable/check_icon_permanentschemes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:button="@drawable/check_icon_permanent_schemes"
         app:layout_constraintBottom_toTopOf="@+id/perma5"
         app:layout_constraintEnd_toEndOf="@+id/perma2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/perma2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/check3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="10dp"
-        android:button="@drawable/check_icon_permanentschemes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:button="@drawable/check_icon_permanent_schemes"
         app:layout_constraintBottom_toTopOf="@+id/perma6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/perma3"
         app:layout_constraintTop_toTopOf="@+id/perma3"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/check4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="10dp"
-        android:button="@drawable/check_icon_permanentschemes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:button="@drawable/check_icon_permanent_schemes"
         app:layout_constraintBottom_toBottomOf="@+id/perma4"
         app:layout_constraintEnd_toEndOf="@+id/perma4"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/perma4"
-        app:layout_constraintTop_toBottomOf="@+id/perma1"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/perma4"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/check5"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="10dp"
-        android:button="@drawable/check_icon_permanentschemes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:button="@drawable/check_icon_permanent_schemes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/perma5"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="@+id/perma5"
-        app:layout_constraintTop_toBottomOf="@+id/perma2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/perma5"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/check6"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="10dp"
-        android:button="@drawable/check_icon_permanentschemes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:button="@drawable/check_icon_permanent_schemes"
         app:layout_constraintBottom_toBottomOf="@+id/perma6"
         app:layout_constraintEnd_toEndOf="@+id/perma6"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/perma6"
-        app:layout_constraintTop_toBottomOf="@+id/perma3"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/perma6"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

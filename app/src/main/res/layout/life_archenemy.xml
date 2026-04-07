@@ -3,27 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/background_life"
+    android:id="@+id/rootLayoutArchenemy"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.fabiopievani.planechasers.archenemy.ArchenemyLife">
-
-    <ImageView
-        android:id="@+id/life_mask_archenemy"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:importantForAccessibility="no"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/life_mask_archenemy" />
 
     <ImageView
         android:id="@+id/bg_archenemy"
         android:contentDescription="@string/background_for_archenemy"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:alpha="0.6"
         android:scaleType="fitXY"
         app:layout_constraintTop_toBottomOf="@id/bg_hero2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,8 +26,9 @@
         android:contentDescription="@string/background_for_hero_1"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:alpha="0.6"
         android:rotation="180"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bg_archenemy"
         app:layout_constraintStart_toEndOf="@id/bg_hero2"
@@ -49,8 +40,9 @@
         android:contentDescription="@string/background_for_hero_2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:alpha="0.6"
         android:rotation="180"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bg_archenemy"
         app:layout_constraintStart_toEndOf="@id/bg_hero3"
@@ -63,13 +55,26 @@
         android:contentDescription="@string/background_for_hero_3"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:alpha="0.6"
         android:rotation="180"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bg_archenemy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/bg_hero2"
         app:layout_constraintHorizontal_weight="1" />
+
+    <ImageView
+        android:id="@+id/life_mask_archenemy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/life_mask_archenemy" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/archenemy_planes_from_life"

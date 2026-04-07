@@ -127,7 +127,7 @@ public class Shortcuts {
 
     public static int CaricamentoDummyVitaArchenemy (Context context, String nome){
         salvataggio = context.getSharedPreferences("planechasers_prefs", Context.MODE_PRIVATE);
-        return salvataggio.getInt(nome,40);
+        return salvataggio.getInt(nome,60);
     }
 
     public static void shuffleArray(int[] array) {

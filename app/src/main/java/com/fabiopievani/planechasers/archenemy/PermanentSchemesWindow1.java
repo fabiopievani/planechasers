@@ -22,8 +22,7 @@ public class PermanentSchemesWindow1 extends AppCompatActivity {
     public ImageView scheme4;
     public ImageView scheme5;
     public ImageView scheme6;
-    public ImageView SwipeScheme;
-    public ImageView SwipePerma2;
+    public ImageView forSwipe;
 
     @SuppressLint({"ClickableViewAccessibility"})
     @Override
@@ -39,8 +38,7 @@ public class PermanentSchemesWindow1 extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        SwipeScheme = findViewById(R.id.swipe_toScheme);
-        SwipePerma2= findViewById(R.id.swipe_toPerma2);
+        forSwipe= findViewById(R.id.swipe_permanent_schemes1);
         scheme1 = findViewById(R.id.perma1);
         scheme2 = findViewById(R.id.perma4);
         scheme3 = findViewById(R.id.perma2);
@@ -76,25 +74,22 @@ public class PermanentSchemesWindow1 extends AppCompatActivity {
         tick5.setChecked(Shortcuts.CaricamentoBooleano(getApplicationContext(),"tick_perma5"));
         tick6.setChecked(Shortcuts.CaricamentoBooleano(getApplicationContext(),"tick_perma6"));
 
-        tick1.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(),b,"tick_perma"));
+        tick1.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(),b,"tick_perma1"));
         tick2.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(),b,"tick_perma2"));
         tick3.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(),b,"tick_perma3"));
         tick4.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(),b,"tick_perma4"));
         tick5.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(),b,"tick_perma5"));
         tick6.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(),b,"tick_perma6"));
 
-        SwipeScheme.setOnTouchListener(new OnSwipeTouchListener(PermanentSchemesWindow1.this) {
-            public void onSwipeRight() {
-                startActivity(new Intent(PermanentSchemesWindow1.this, Schemes.class));
-                overridePendingTransition(R.anim.animation_left_to_right_enter, R.anim.animation_left_to_right_exit);
-                finish();
-            }
-        });
-
-        SwipePerma2.setOnTouchListener(new OnSwipeTouchListener(PermanentSchemesWindow1.this) {
+        forSwipe.setOnTouchListener(new OnSwipeTouchListener(PermanentSchemesWindow1.this) {
             public void onSwipeLeft() {
                 startActivity(new Intent(PermanentSchemesWindow1.this, PermanentSchemesWindow2.class));
                 overridePendingTransition(R.anim.animation_right_to_left_enter, R.anim.animation_right_to_left_exit);
+                finish();
+            }
+            public void onSwipeRight() {
+                startActivity(new Intent(PermanentSchemesWindow1.this, Schemes.class));
+                overridePendingTransition(R.anim.animation_left_to_right_enter, R.anim.animation_left_to_right_exit);
                 finish();
             }
         });

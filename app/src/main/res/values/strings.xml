@@ -58,4 +58,16 @@
     <string name="apri_galleria">Apri galleria</string>
     <string name="commander_choice_title">CHOOSE YOUR COMMANDER</string>
     <string name="_60">60</string>
+    <string name="permanent_scheme_number_1">permanent scheme number 1</string>
+    <string name="permanent_scheme_number_2">permanent scheme number 2</string>
+    <string name="permanent_scheme_number_3">permanent scheme number 3</string>
+    <string name="permanent_scheme_number_4">permanent scheme number 4</string>
+    <string name="permanent_scheme_number_5">permanent scheme number 5</string>
+    <string name="permanent_scheme_number_6">permanent scheme number 6</string>
+    <string name="permanent_scheme_number_10">permanent scheme number 10</string>
+    <string name="permanent_scheme_number_11">permanent scheme number 11</string>
+    <string name="permanent_scheme_number_12">permanent scheme number 12</string>
+    <string name="permanent_scheme_number_9">permanent scheme number 9</string>
+    <string name="permanent_scheme_number_8">permanent scheme number 8</string>
+    <string name="permanent_scheme_number_7">permanent scheme number 7</string>
 </resources>

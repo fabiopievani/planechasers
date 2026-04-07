@@ -20,13 +20,14 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.fabiopievani.planechasers.utility.Shortcuts;
 import com.fabiopievani.planechasers.R;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 
 
 @SuppressWarnings("deprecation")
@@ -148,20 +149,20 @@ public class Commanders extends AppCompatActivity {
             startActivityForResult(intent, 4);
         });
 
+        List<Integer> avatars = new ArrayList<>();
+        for (int i = 0; i < 51; i++) {
+            avatars.add(i);
+        }
+
         RANDOM.setOnClickListener(v -> {
             myVib.vibrate(20);
             rand_check = 1;
 
-            Random rand = new Random();
-            int randAvatar1 = rand.nextInt(96);
-            int randAvatar2 = rand.nextInt(96);
-            while (randAvatar2 == randAvatar1) randAvatar2 = rand.nextInt(96);
-            int randAvatar3 = rand.nextInt(96);
-            while (randAvatar3 == randAvatar2 || randAvatar3 == randAvatar1)
-                randAvatar3 = rand.nextInt(96);
-            int randAvatar4 = rand.nextInt(96);
-            while (randAvatar4 == randAvatar3 || randAvatar4 == randAvatar2 || randAvatar4 == randAvatar1)
-                randAvatar4 = rand.nextInt(96);
+            Collections.shuffle(avatars);
+            int randAvatar1 = avatars.get(0);
+            int randAvatar2 = avatars.get(1);
+            int randAvatar3 = avatars.get(2);
+            int randAvatar4 = avatars.get(3);
 
             Shortcuts.SalvataggioDummy(getApplicationContext(), rand_check, "rand_check");
             Shortcuts.SalvataggioDummy(getApplicationContext(), randAvatar1, "randAvatar1");

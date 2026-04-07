@@ -23,8 +23,7 @@ public class PermanentSchemesWindow2 extends AppCompatActivity {
     public ImageView scheme10;
     public ImageView scheme11;
     public ImageView scheme12;
-    public ImageView SwipeScheme2;
-    public ImageView SwipePerma1;
+    public ImageView forSwipe;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -41,8 +40,7 @@ public class PermanentSchemesWindow2 extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        SwipeScheme2 = findViewById(R.id.swipe_toScheme2);
-        SwipePerma1 = findViewById(R.id.swipe_toPerma1);
+        forSwipe= findViewById(R.id.swipe_permanent_schemes2);
         scheme7 = findViewById(R.id.perma7);
         scheme8 = findViewById(R.id.perma8);
         scheme9 = findViewById(R.id.perma9);
@@ -84,17 +82,9 @@ public class PermanentSchemesWindow2 extends AppCompatActivity {
         tick11.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(), b, "tick11"));
         tick12.setOnCheckedChangeListener((compoundButton, b) -> Shortcuts.SalvataggioBooleano(getApplicationContext(), b, "tick12"));
 
-        SwipePerma1.setOnTouchListener(new OnSwipeTouchListener(PermanentSchemesWindow2.this) {
+        forSwipe.setOnTouchListener(new OnSwipeTouchListener(PermanentSchemesWindow2.this) {
             public void onSwipeRight() {
                 startActivity(new Intent(PermanentSchemesWindow2.this, PermanentSchemesWindow1.class));
-                overridePendingTransition(R.anim.animation_left_to_right_enter, R.anim.animation_left_to_right_exit);
-                finish();
-            }
-        });
-
-        SwipeScheme2.setOnTouchListener(new OnSwipeTouchListener(PermanentSchemesWindow2.this) {
-            public void onSwipeLeft() {
-                startActivity(new Intent(PermanentSchemesWindow2.this, Schemes.class));
                 overridePendingTransition(R.anim.animation_left_to_right_enter, R.anim.animation_left_to_right_exit);
                 finish();
             }

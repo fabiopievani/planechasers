@@ -4,6 +4,8 @@ package com.fabiopievani.planechasers.core;
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -78,7 +80,7 @@ public class Life extends AppCompatActivity {
 
     public ImageView forSwipe;
 
-    List<Integer> myAvatarList = Arrays.asList(R.drawable.z_avatar0, R.drawable.z_avatar1, R.drawable.z_avatar2, R.drawable.z_avatar3, R.drawable.z_avatar4, R.drawable.z_avatar5, R.drawable.z_avatar6, R.drawable.z_avatar7, R.drawable.z_avatar8, R.drawable.z_avatar9, R.drawable.z_avatar10, R.drawable.z_avatar11, R.drawable.z_avatar12, R.drawable.z_avatar13, R.drawable.z_avatar14, R.drawable.z_avatar15, R.drawable.z_avatar16, R.drawable.z_avatar17, R.drawable.z_avatar18, R.drawable.z_avatar19, R.drawable.z_avatar20, R.drawable.z_avatar21, R.drawable.z_avatar22, R.drawable.z_avatar23, R.drawable.z_avatar24, R.drawable.z_avatar25, R.drawable.z_avatar26, R.drawable.z_avatar27, R.drawable.z_avatar28, R.drawable.z_avatar29, R.drawable.z_avatar30, R.drawable.z_avatar31, R.drawable.z_avatar32, R.drawable.z_avatar33, R.drawable.z_avatar34, R.drawable.z_avatar35, R.drawable.z_avatar36, R.drawable.z_avatar37, R.drawable.z_avatar38, R.drawable.z_avatar39, R.drawable.z_avatar40, R.drawable.z_avatar41, R.drawable.z_avatar42, R.drawable.z_avatar43, R.drawable.z_avatar44, R.drawable.z_avatar45, R.drawable.z_avatar46, R.drawable.z_avatar47, R.drawable.z_avatar48, R.drawable.z_avatar49, R.drawable.z_avatar50, R.drawable.z_avatar51, R.drawable.z_avatar52, R.drawable.z_avatar53, R.drawable.z_avatar54, R.drawable.z_avatar55, R.drawable.z_avatar56, R.drawable.z_avatar57, R.drawable.z_avatar58, R.drawable.z_avatar59, R.drawable.z_avatar60, R.drawable.z_avatar61, R.drawable.z_avatar62, R.drawable.z_avatar63, R.drawable.z_avatar64, R.drawable.z_avatar65, R.drawable.z_avatar66, R.drawable.z_avatar67, R.drawable.z_avatar68, R.drawable.z_avatar69, R.drawable.z_avatar70, R.drawable.z_avatar71, R.drawable.z_avatar72, R.drawable.z_avatar73, R.drawable.z_avatar74, R.drawable.z_avatar75, R.drawable.z_avatar76, R.drawable.z_avatar77, R.drawable.z_avatar78, R.drawable.z_avatar79, R.drawable.z_avatar80, R.drawable.z_avatar81, R.drawable.z_avatar82, R.drawable.z_avatar83, R.drawable.z_avatar84, R.drawable.z_avatar85, R.drawable.z_avatar86, R.drawable.z_avatar87, R.drawable.z_avatar88, R.drawable.z_avatar89, R.drawable.z_avatar90, R.drawable.z_avatar91, R.drawable.z_avatar92, R.drawable.z_avatar93, R.drawable.z_avatar94, R.drawable.z_avatar95);
+    List<Integer> myAvatarList = Arrays.asList(R.drawable.commander_avatar0,R.drawable.commander_avatar1,R.drawable.commander_avatar2,R.drawable.commander_avatar3,R.drawable.commander_avatar4,R.drawable.commander_avatar5,R.drawable.commander_avatar6,R.drawable.commander_avatar7,R.drawable.commander_avatar8,R.drawable.commander_avatar9,R.drawable.commander_avatar10,R.drawable.commander_avatar11,R.drawable.commander_avatar12,R.drawable.commander_avatar13,R.drawable.commander_avatar14,R.drawable.commander_avatar15,R.drawable.commander_avatar16,R.drawable.commander_avatar17,R.drawable.commander_avatar18,R.drawable.commander_avatar19,R.drawable.commander_avatar20,R.drawable.commander_avatar21,R.drawable.commander_avatar22,R.drawable.commander_avatar23,R.drawable.commander_avatar24,R.drawable.commander_avatar25,R.drawable.commander_avatar26,R.drawable.commander_avatar27,R.drawable.commander_avatar28,R.drawable.commander_avatar29,R.drawable.commander_avatar30,R.drawable.commander_avatar31,R.drawable.commander_avatar32,R.drawable.commander_avatar33,R.drawable.commander_avatar34,R.drawable.commander_avatar35,R.drawable.commander_avatar36,R.drawable.commander_avatar37,R.drawable.commander_avatar38,R.drawable.commander_avatar39,R.drawable.commander_avatar40,R.drawable.commander_avatar41,R.drawable.commander_avatar42,R.drawable.commander_avatar43,R.drawable.commander_avatar44,R.drawable.commander_avatar45,R.drawable.commander_avatar46,R.drawable.commander_avatar47,R.drawable.commander_avatar48,R.drawable.commander_avatar49,R.drawable.commander_avatar50);
 
     @SuppressLint({"ClickableViewAccessibility"})
     @Override
@@ -150,6 +152,8 @@ public class Life extends AppCompatActivity {
         //Con random selezionato
         int random_check = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "rand_check");
         if (random_check == 1) {
+            ConstraintLayout root = findViewById(R.id.rootLayoutClassic);
+            root.setBackgroundResource(R.drawable.background_life_with_images);
             int rndAvatar1 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar1");
             int rndAvatar2 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar2");
             int rndAvatar3 = Shortcuts.CaricamentoDummyVita(getApplicationContext(), "randAvatar3");
@@ -162,15 +166,23 @@ public class Life extends AppCompatActivity {
 
         //Se ho selezionato manualmente degli avatar (VIENE ESEGUITA DOPO QUINDI HA PRIORITA')
         if (!Objects.equals(percorso1, "")) {
+            ConstraintLayout root = findViewById(R.id.rootLayoutClassic);
+            root.setBackgroundResource(R.drawable.background_life_with_images);
             decodeBase64AndSetImage(percorso1, player_1);
         }
         if (!Objects.equals(percorso2, "")) {
+            ConstraintLayout root = findViewById(R.id.rootLayoutClassic);
+            root.setBackgroundResource(R.drawable.background_life_with_images);
             decodeBase64AndSetImage(percorso2, player_2);
         }
         if (!Objects.equals(percorso3, "")) {
+            ConstraintLayout root = findViewById(R.id.rootLayoutClassic);
+            root.setBackgroundResource(R.drawable.background_life_with_images);
             decodeBase64AndSetImage(percorso3, player_3);
         }
         if (!Objects.equals(percorso4, "")) {
+            ConstraintLayout root = findViewById(R.id.rootLayoutClassic);
+            root.setBackgroundResource(R.drawable.background_life_with_images);
             decodeBase64AndSetImage(percorso4, player_4);
         }
 
