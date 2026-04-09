@@ -21,3 +21,12 @@ Istallazione
 1) Clona il repository: git clone https://github.com/tuo-username/planechasers.git
 2) Apri il progetto con Android Studio
 3) Build e Run su dispositivo/emulatore
+
+Disclaimer
+Questo progetto è un progetto personale di portfolio e non è affiliato né approvato da Wizards of the Coast.
+Tutti i dati e le immagini delle carte di Magic: The Gathering sono proprietà di Wizards of the Coast.
+Le immagini utilizzate in questo progetto provengono da Scryfall (https://scryfall.com/) e sono utilizzati secondo i rispettivi termini d’uso.
+
+Questo progetto ha esclusivamente finalità educative e non commerciali.
+
+
