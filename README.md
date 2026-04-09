@@ -10,12 +10,13 @@ Features:
 - Ottimizzata per landscape
 - Feedback utente (vibrazione, animazioni)
 
-Stack Tecnologico
--Java
--Android SDK
--ConstraintLayout
--MediaPlayer / TextureView
--SharedPreferences
+Stack Tecnologico:
+- Java
+- Android SDK
+- XML
+- ConstraintLayout
+- MediaPlayer / TextureView
+- SharedPreferences
 
 Istallazione
 1) Clona il repository: git clone https://github.com/tuo-username/planechasers.git
